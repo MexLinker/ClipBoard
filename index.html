@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="https://iconfont.alicdn.com/t/1589339980645.jpg@200h_200w.jpg" type="image/x-icon"/>
+    <!-- 这是设置网页图标的方法 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📓</title>
+    <style type="text/css">
+        .div1{
+            /* background-color: RGB(18,42,73); */
+            width: 1000px;
+            margin: auto;
+        }
+        .div2{
+            
+        }
+    </style>
+    
+</head>
+<body bgcolor="RGB(18,42,73)" >
+    <div class="div1">
+        <div class="div2">
+    <h1 style="color: aquamarine;">您可以理解本页面为<i>'用一个网页做为备忘录'</i></h>
+    <h6>（说明：'历史'--显示备忘录历史、
+    '隐藏'--隐藏备忘录历史、
+    '记录'--将输入字符写入浏览器）</h6>
+    
+    <!-- <h id='changeabrowser'></h> --> 
+  
+    <input type="button" name="button" value="历史" onclick="His()" />
+     <!-- 1. button为什么用不了？ 2. 再次点击隐藏     -->
+    <input type="button" name="button" value="隐藏" onclick="Hid()" />
+
+    <form id="form1">
+        <table borde="0">
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="text" name="name" id='inputid' />
+                    <input type="button" name="button" value="记录😎" onclick="AddToLocal()" />
+                    <!-- 输入CLS清除一切过去的文字 -->
+                </td>
+            </tr>
+        </table>
+   </form>
+
+   <p id='theHis'></p>
+   
+   <p  style="color: rgb(48, 42, 66);">
+        <h5>
+            技术细节请移步
+            <a href="https://github.com/MexLinker/message-board" style="color:yellow;"  target="_blank">GitHub</a>
+            <!-- href中是拼错 调了好几次才发现 难受 -->
+        </h5>
+        <h5>包括源码、学习细节、输入、记录、输出、格式</h5>
+        <h5>本测试页面过于简陋~关注Repository后续会有所改动（如果我没犯拖延症）</h5>
+
+        <h5>ps:个人博客
+          <a href="https://mexlinker.github.io/" style="color:yellow;"  target="_blank">浪化</a>
+        </h5>
+
+    </p>
+           
+    <script>
+        var X = document.getElementById('inputid').value;
+        console.log(X)
+    </script>
+
+    <script>
+       function AddToLocal(){
+                                if(! window.localStorage)
+                                {
+                                alert("浏览器不支持localstorage可以尝试使用最新版本Chrome浏览器");
+                                return false;
+                                }
+                                else
+                                {
+                                var StringInputted = document.getElementById('inputid').value;
+
+                                var storage=window.localStorage;
+                                    
+                                    storage["a"] +='                        ' + StringInputted//InputNum; //写入a字段
+
+                                    //按Enter键应该立即储存
+
+                                    //有没有 更好的方式 而不是
+
+                                    //添加计数器 隔于 字符之中
+                                    
+                                    //storage.b=1;//写入b字段
+                                    
+                                    //storage.setItem("c",3);//写入c字段
+
+                                   // console.log(typeof storage["a"]);
+                                    //console.log(typeof storage["b"]);
+                                    //console.log(typeof storage["c"]);
+                                    //
+                                   // console.log(InputNum)
+                                   //console.log(a)
+                                   // His(); //his不动。。。？
+                                   //var a=storage.a;
+                                   //document.getElementById('theHis').innerHTML = a;
+                                   console.log('顽强学习，坚决斗争')
+
+                                }
+                            }
+         
+    </script>
+    <script>
+        function His() {
+        var storage=window.localStorage;
+        var a=storage.a;
+        document.getElementById('theHis').innerHTML = a;
+        //
+        //console.log("the function Hi() has been running")
+        }
+        function Hid() {
+            document.getElementById('theHis').innerHTML = "";
+        }
+    </script>
+
+</div>
+</div>
+</body>
+</html>
